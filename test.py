@@ -2,21 +2,6 @@ import numpy as np
 import random
 from data import training_set, test_set
 
-once = 0
-
-# nrOfColumns = 3
-# nrOfRows = 3
-# nrOfSymbols = 2
-
-# global once
-# if once == 0:
-#     # for link in links:
-#     #     print(link.inNode.value)
-#     for node in inputNodes:
-#         print(node.value)
-#     once = 1
-#     print("===========")
-
 class Node:
     def __init__(self):
         # self.input_sum = 0.0
@@ -83,31 +68,29 @@ learning_rate = 0.01
 epochs = 1_000
 
 inputNodes = [Node() for i in range(input_size)]
-
 outputNodes = [Node() for i in range(output_size)]
 
-
+# links = [Link(inputNode,outputNode) for inputNode in inputNodes for outputNode in outputNodes ]
 links = []
-
 for inputNode in inputNodes:
     for outputNode in outputNodes:
         links.append(Link(inputNode, outputNode))
 
+print(len(links))
 train(learning_rate, epochs)
 
 
 # Test the neural network
-for example in test_set:
-    inputs = example[0][0]+ example[0][1] +example[0][2]
-    inputs = np.array(example[0]).flatten()
-    print("Input:", inputs)
+# for example in test_set:
+#     inputs = np.array(example[0]).flatten()
+#     print("Input:", inputs)
     
-    prediction = predict(inputs)
-    print("Prediction:", prediction)
-    print("Expected:", example[1])
+#     prediction = predict(inputs)
+#     print("Prediction:", prediction)
+#     print("Expected:", example[1])
 
-    if prediction[0] > prediction[1]:
-        print("It's a circle (O)")
-    else:
-        print("It's a cross (X)")
-    print()
+#     if prediction[0] > prediction[1]:
+#         print("It's a circle (O)")
+#     else:
+#         print("It's a cross (X)")
+#     print()
