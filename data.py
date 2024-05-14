@@ -3,8 +3,6 @@ hiddenDim = 39
 # hiddenDim = 10
 outputDim = 2
 
-maxCost = 0.01
-
 training_set = (
     ((
         (1, 1, 1),
